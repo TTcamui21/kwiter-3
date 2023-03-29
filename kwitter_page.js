@@ -1,6 +1,13 @@
-
-// Inicialize o Firebase
-//??
+const firebaseConfig = {
+  apiKey: "AIzaSyAfvUeYd4e7AVSetOz9IgdPxNxKsJP6dlY",
+  authDomain: "banco-de-dados-80425.firebaseapp.com",
+  databaseURL: "https://banco-de-dados-80425-default-rtdb.firebaseio.com",
+  projectId: "banco-de-dados-80425",
+  storageBucket: "banco-de-dados-80425.appspot.com",
+  messagingSenderId: "712789558884",
+  appId: "1:712789558884:web:6af1554451a2f74517c171",
+  measurementId: "G-2J64CJFJJ1"
+};
 
 
 firebase.initializeApp(firebaseConfig);
@@ -10,13 +17,13 @@ user_name = localStorage.getItem("user_name");
 //Na linha acima, você está pegando o nome do usuário dentro do localStorage
 //Faça o mesmo com o 'room_name'
 //??
-
+room_name = localStorage.getItem("room_name");
 function send()
 {
   msg = document.getElementById("msg").value;
   //Utilize o firebase.database().ref para referenciar o nome da sala que está no firebase
 
-  ???(room_name).push({
+  firebase.database().ref(room_name).push({
     name:user_name,
     message:msg,
     like:0
@@ -27,7 +34,7 @@ function send()
 
 function getData() { 
 //Utilize o código que referencia o firebase
-  ??("/"+room_name).on('value',
+firebase.database().ref("/"+room_name).on('value',
   function(snapshot) { document.getElementById("output").innerHTML = ""; snapshot.forEach(function(childSnapshot) { childKey  = childSnapshot.key; childData = childSnapshot.val(); if(childKey != "purpose") {
          firebase_message_id = childKey;
          message_data = childData;
@@ -51,14 +58,17 @@ function updateLike(message_id)
 	button_id = message_id;
 	likes = document.getElementById(button_id).value;
   //Utilize '+1'para que sempre que o botão de like for clicado, o número de likes seja adicionado mais 1
-	updated_likes = Number(likes) ???;
+	updated_likes = Number(likes) +1;
 	firebase.database().ref(room_name).child(message_id).update({
     //Na linha 53, uma variável 'updated_likes' foi criado
     //Adicione esse variável dentro da variável 'likes'
-		like : ???  
+		like : updated_likes
 	 });
 
 }
-
+function logout() {
+    localStorage.removeItem("user_name");
+    window.location = "index.html";
+}
 //Crie a função logout
 //Você ja criou essa função no arquivo 'kwiter_room.js'
