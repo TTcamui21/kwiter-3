@@ -1,11 +1,12 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyCgRnbmUKPG84OFSRrIlHnoWHcCnQNS9Ek",
-  authDomain: "teste93-97.firebaseapp.com",
-  databaseURL: "https://teste93-97-default-rtdb.firebaseio.com",
-  projectId: "teste93-97",
-  storageBucket: "teste93-97.appspot.com",
-  messagingSenderId: "199592495195",
-  appId: "1:199592495195:web:6f8e0da06238ada2d0d77e"
+  apiKey: "AIzaSyAfvUeYd4e7AVSetOz9IgdPxNxKsJP6dlY",
+  authDomain: "banco-de-dados-80425.firebaseapp.com",
+  databaseURL: "https://banco-de-dados-80425-default-rtdb.firebaseio.com",
+  projectId: "banco-de-dados-80425",
+  storageBucket: "banco-de-dados-80425.appspot.com",
+  messagingSenderId: "712789558884",
+  appId: "1:712789558884:web:6af1554451a2f74517c171",
+  measurementId: "G-2J64CJFJJ1"
 };
 
 // Initialize Firebase
